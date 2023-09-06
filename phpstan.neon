@@ -1,0 +1,6 @@
+parameters:
+  excludePaths:
+    - */Module.php
+  level: 3
+  ignoreErrors:
+    - '#Return type \(array\) of method (.*?)::getInputFilterSpecification\(\) should be compatible with return type \(\*NEVER\*\) of method Laminas\\InputFilter\\InputFilterProviderInterface::getInputFilterSpecification\(\)#'

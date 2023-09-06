@@ -1,0 +1,66 @@
+{
+  "name": "saeven/hydration-test",
+  "description": "Test to evidence collection hydration issues.",
+  "license": "Commercial",
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "HydrationTest\\": "module/HydrationTest/src/"
+    }
+  },
+  "config": {
+    "secure-http": false,
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "laminas/laminas-dependency-plugin": true,
+      "php-http/discovery": true
+    }
+  },
+  "prefer-stable": true,
+  "require": {
+    "php": "^7.4",
+    "laminas/laminas-servicemanager": "3.17.0",
+    "laminas/laminas-eventmanager": "3.5.0",
+    "laminas/laminas-modulemanager": "2.12.0",
+    "laminas/laminas-config": "3.7.0",
+    "laminas/laminas-config-aggregator": "1.9.0",
+    "laminas/laminas-crypt": "3.8.0",
+    "laminas/laminas-mvc": "3.3.5",
+    "laminas/laminas-filter": "2.22.0",
+    "laminas/laminas-inputfilter": "2.21.0",
+    "laminas/laminas-form": "3.4.1",
+    "laminas/laminas-hydrator": "4.5.0",
+    "laminas/laminas-http": "2.16.1",
+    "laminas/laminas-validator": "2.25.0",
+    "laminas/laminas-json": "3.3.0",
+    "laminas/laminas-router": "3.9.0",
+    "psr/container": "1.1.2",
+    "doctrine/annotations": "1.13.3",
+    "doctrine/common": "3.2.2",
+    "doctrine/collections": "1.6.9",
+    "doctrine/orm": "2.10.5",
+    "doctrine/dbal": "2.13.9",
+    "doctrine/instantiator": "1.4.1",
+    "doctrine/inflector": "2.1.x-dev",
+    "doctrine/persistence": "2.2.4",
+    "doctrine/doctrine-laminas-hydrator": "2.2.1",
+    "doctrine/doctrine-orm-module": "4.1.0",
+    "doctrine/doctrine-module": "4.2.2",
+    "doctrine/data-fixtures": "1.5.4"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "phpstan/phpstan": "1.10.33",
+    "squizlabs/php_codesniffer": "3.6.2",
+    "laminas/laminas-coding-standard": "2.4.0"
+  },
+  "scripts": {
+    "cs": "mkdir -p tmp && vendor/bin/phpcs",
+    "serve": [
+      "Composer\\Config::disableProcessTimeout",
+      "php -e -S 0.0.0.0:8080 -t public"
+    ],
+    "stan": "vendor/bin/phpstan analyse -c ./phpstan.neon --memory-limit 1G --xdebug --ansi -vvv module"
+  }
+}

@@ -88,7 +88,9 @@ class IndexController extends AbstractActionController
             ];
 
             $recipeForm = $this->formElementManager->build(RecipeForm::class, [
-                'recipe' => $this->entityManager->getRepository(Recipe::class)->findOneBy(['id' => 1])
+                'recipe' => $this->entityManager->getRepository(Recipe::class)->findOneBy([
+                    'id' => 1,
+                ]),
             ]);
 
             $recipeForm->setData($postData);
@@ -103,7 +105,6 @@ class IndexController extends AbstractActionController
 
             $this->entityManager->persist($adjustedRecipe);
             $this->entityManager->flush();
-
         } catch (Exception $x) {
             return new JsonModel([
                 'success' => false,

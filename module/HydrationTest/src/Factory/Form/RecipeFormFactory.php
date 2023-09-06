@@ -7,7 +7,6 @@ namespace HydrationTest\Factory\Form;
 use Doctrine\Laminas\Hydrator\DoctrineObject as DoctrineHydrator;
 use Doctrine\Laminas\Hydrator\Strategy\AllowRemoveByReference;
 use Doctrine\ORM\EntityManager;
-use Exception;
 use HydrationTest\Form\IngredientAmountFieldset;
 use HydrationTest\Form\RecipeForm;
 use Laminas\Form\FormElementManager;
@@ -24,8 +23,7 @@ class RecipeFormFactory implements FactoryInterface
         return (new RecipeForm(
             $container->get(FormElementManager::class)->get(IngredientAmountFieldset::class, $options ?? []),
             $options ?? []
-        ))
-            ->setHydrator($hydrator)
+        ))->setHydrator($hydrator)
             ->setObject($options['recipe']);
     }
 }

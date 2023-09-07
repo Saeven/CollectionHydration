@@ -39,7 +39,7 @@ class IngredientAmountFieldset extends Fieldset implements InputFilterProviderIn
             'name' => 'tablespoons',
             'type' => Number::class,
             'options' => [
-                'labe' => 'Total TBSP',
+                'label' => 'Total TBSP',
             ],
         ]);
     }

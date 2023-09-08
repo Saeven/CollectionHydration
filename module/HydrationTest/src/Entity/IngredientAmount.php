@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace HydrationTest\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use HydrationTest\Model\CollectionDiffInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="recipes_ingredients");
  */
-class IngredientAmount
+class IngredientAmount implements CollectionDiffInterface
 {
     /**
      * @ORM\Id
@@ -57,5 +58,19 @@ class IngredientAmount
     public function getTablespoons(): int
     {
         return $this->tablespoons;
+    }
+
+    public function getDiffIdentifier(): string
+    {
+        return $this->recipe->getId() . '-' . $this->ingredient->getId();
+    }
+
+    public function copyValuesFrom(object $object): void
+    {
+        if (!$object instanceof IngredientAmount) {
+            return;
+        }
+
+        $this->tablespoons = $object->getTablespoons();
     }
 }

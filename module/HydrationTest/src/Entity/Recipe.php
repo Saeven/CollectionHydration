@@ -38,6 +38,14 @@ class Recipe
      */
     private $ingredient_amounts;
 
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
     public function __construct(int $id, string $title)
     {
         $this->id = $id;

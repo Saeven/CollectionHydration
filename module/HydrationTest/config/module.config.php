@@ -33,7 +33,7 @@ return [
     'input_filters' => require __DIR__ . DIRECTORY_SEPARATOR . 'inputfilters.config.php',
     'view_manager' => [
         'display_not_found_reason' => true,
-        'display_exceptions' => true,
+        'display_exceptions' => false,
         'doctype' => 'HTML5',
         'exception_template' => 'error/index',
         'template_path_stack' => [
